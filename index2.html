@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .slider {
+            position: relative;
+            width: 1100px;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .slider__wrapper {
+            width: 960px;
+            height: 540px;
+            margin: 0 auto;
+            overflow: hidden;
+            box-shadow: 0 3px 20px 1px #000000;
+        }
+
+        .slider__slide {
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row-reverse;
+            position: relative;
+            left: 0;
+            transition: 1s;
+        }
+
+        .slider__btn {
+            position: absolute;
+            top: 245px;
+            width: 30px;
+            height: 30px;
+            font-size: 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            opacity: 0.3;
+        }
+
+        .slider__btn:hover {
+            opacity: 1;
+        }
+
+        .slider__btn:active {
+            opacity: 0.5;
+        }
+
+        .slider__btn--left {
+            border-top: 2px solid #20262E;
+            border-left: 2px solid #20262E;
+            border-radius: 3px;
+            transform: rotate(-45deg);
+            left: 20px;
+        }
+
+        .slider__btn--right {
+            border-top: 2px solid #20262E;
+            border-right: 2px solid #20262E;
+            border-radius: 3px;
+            transform: rotate(45deg);
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="slider">
+    <div class="slider__wrapper">
+        <div class="slider__slide" id="move">
+            <img src="https://s19.postimg.cc/o5tsgzxeb/image.jpg" alt="img-nature">
+            <img src="https://s19.postimg.cc/xdm0xowqr/image.jpg" alt="img-nature">
+            <img src="https://s19.postimg.cc/7utokp81v/image.jpg" alt="img-nature">
+            <img src="https://s19.postimg.cc/tu037w9gj/image.jpg" alt="img-nature">
+            <img src="https://s19.postimg.cc/p83yzjvn7/image.jpg" alt="img-nature">
+            <img src="https://s19.postimg.cc/e8irnyknn/image.jpg" alt="img-nature">
+        </div>
+    </div>
+    <button class="slider__btn slider__btn--left" onclick="sliderLeft()">Left</button>
+    <button class="slider__btn slider__btn--right" onclick="sliderRight()">Right</button>
+</div>
+
+<script>
+    var left = 0;
+    var slide = document.getElementById('move');
+
+    function sliderLeft() {
+        left = left - 960;
+        if (left < 0) {
+            left = 0;
+        }
+        slide.style.left = left + 'px';
+    }
+
+    function sliderRight() {
+        left = left + 960;
+        if (left > 4800) {
+            left = 4800;
+        }
+        slide.style.left = left + 'px';
+    }
+</script>
+</body>
+</html>
